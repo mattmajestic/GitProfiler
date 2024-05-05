@@ -6,6 +6,7 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from rest_framework import permissions
 from . import views
+from .views import gitprofiler
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -18,10 +19,11 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = [
-     path('', views.gitprofiler),
+     path('', gitprofiler, name='gitprofiler'),
      path('docs/', TemplateView.as_view(template_name="docs.html")),
      re_path(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),
      path('api/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+     path('button_press/', gitprofiler, name='button_press'),
      path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
      path('download/', views.download_report),
 ]

@@ -1,8 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
-import requests
-from bs4 import BeautifulSoup
+from .models import ButtonPress
 
 def download_report(request):
     return HttpResponse("This is a placeholder for the download report view.")
@@ -12,28 +11,9 @@ def gitprofiler(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         url = request.POST.get('url')
-        if url:  # Check if the URL is not None
-            response = requests.get(url)
-            soup = BeautifulSoup(response.text, 'html.parser')
-            page_contents = soup.prettify()
-            return render(request, 'gitprofiler.html', {'username': username, 'page_contents': page_contents})
-        else:
-            return render(request, 'gitprofiler.html', {'username': username})
+        if username and url:  # Check if the username and URL are not None
+            button_press = ButtonPress(username=username, url=url)
+            button_press.save()
+        return render(request, 'gitprofiler.html')
     else:
         return render(request, 'gitprofiler.html')
-
-def scrape_job(url):
-    response = requests.get(url)
-    soup = BeautifulSoup(response.text, 'html.parser')
-
-    # Remove script tags
-    for script in soup.find_all('script'):
-        script.decompose()
-
-    data = {
-        'title': soup.find('title').text if soup.find('title') else None,
-        'h1': soup.find('h1').text if soup.find('h1') else None,
-        'p': [p.text for p in soup.find_all('p')],
-    }
-
-    return data
