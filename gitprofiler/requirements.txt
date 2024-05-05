@@ -1,0 +1,7 @@
+celery
+Django
+drf-yasg
+redis
+requests
+djangorestframework
+beautifulsoup4

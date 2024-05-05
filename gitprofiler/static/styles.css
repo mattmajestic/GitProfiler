@@ -1,0 +1,96 @@
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+form {
+    margin-bottom: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+form input[type="text"] {
+    font-size: 1.2em;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 80%;
+    text-align: center;
+}
+form input[type="submit"] {
+    font-size: 1.2em;
+    padding: 10px;
+    width: 80%;
+    color: white;
+    background-color: black;
+    border: 2px solid teal;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.5s, color 0.5s;
+    animation: glow 2s infinite;
+}
+form input[type="submit"]:active {
+    animation: none;
+}
+h1, h2 {
+    color: teal;
+}
+h2 {
+    font-size: 1.2em;
+}
+p {
+    color: white;
+}
+a {
+    color: teal;
+    text-decoration: none;
+    margin: 0 10px;
+}
+.glow-button {
+    font-size: 1em;
+    padding: 10px 20px;
+    color: white;
+    background-color: black;
+    border: 2px solid teal;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.5s, color 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    animation: glow 2s infinite;
+}
+.glow-button:hover {
+    background: teal;
+    color: black;
+}
+.glow-button:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: teal;
+    color: black;
+    padding: 5px;
+    border-radius: 5px;
+    white-space: nowrap;
+}
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px teal, 0 0 10px teal, 0 0 15px teal, 0 0 20px teal;
+    }
+    50% {
+        box-shadow: 0 0 10px teal, 0 0 20px teal, 0 0 30px teal, 0 0 40px teal;
+    }
+    100% {
+        box-shadow: 0 0 5px teal, 0 0 10px teal, 0 0 15px teal, 0 0 20px teal;
+    }
+}

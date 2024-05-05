@@ -1,0 +1,11 @@
+
+services:
+  web:
+    build: ./gitprofiler
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./gitprofiler:/app
+    ports:
+      - "8000:8000"
+  redis:
+    image: "redis:alpine"

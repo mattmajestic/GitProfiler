@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GitProfiler</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <h1>GitProfiler</h1>
+    <h2>Matching GitHub Profiles with Job Postings</h2>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="GitHub username">
+        <input type="text" name="url" placeholder="URL">
+        <input type="submit" value="Submit">
+    </form>
+    <a href="/api/" class="glow-button" data-tooltip="Go to API">
+        🔗 API
+    </a>
+    <a href="/devdocs/" class="glow-button" data-tooltip="Go to Dev Docs">
+        📚 Dev Docs
+    </a>
+    {% if report %}
+        <h2>Report for {{ username }}</h2>
+        <p>{{ report }}</p>
+        <a href="/download/">Download Report</a>
+    {% endif %}
+    {% if data %}
+        <h2>{{ data.title }}</h2>
+        <h1>{{ data.h1 }}</h1>
+        {% for p in data.p %}
+            <p>{{ p }}</p>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>
