@@ -22,4 +22,4 @@ jobs:
         with:
           context: ./gitprofiler
           push: true
-          tags: ${{ github.repository }}:latest
+          tags: mattmajestic/gitprofiler:latest
