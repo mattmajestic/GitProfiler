@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-feg#3-3-7m@**udk$1r9d*u=juh7drfnm*s2o_3qxm#9gyalg6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['gitprofiler.onrender.com']
 
 
 # Application definition
