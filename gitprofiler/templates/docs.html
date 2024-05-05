@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>GitProfiler</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta charset="UTF-8">
+    <meta name="author" content="i12bretro">
+    <meta name="description" content="GitProfiler">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="revised" content="04/11/2024" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="{% static 'script.js' %}"></script>
+    <link href="{% static 'style.css' %}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div id="gridContainer">
+        <div class="topMargin"></div>
+        <div id="listName" class="topMargin">
+            <h1>GitProfiler 🚀</h1>
+            <p>GitProfiler is a proof-of-concept (POC) project built with Django. It matches GitHub profiles with job postings, providing a unique way to find potential candidates or job opportunities.</p>
+
+            <h2>Functionality 🛠️</h2>
+            <p>GitProfiler allows users to input a GitHub username and a job posting URL. It then generates a report comparing the GitHub user's profile with the requirements in the job posting. This report can be downloaded for further analysis.</p>
+
+            <h2>Technology Stack 💻</h2>
+            <p>GitProfiler is built using the following technologies:</p>
+            <ul>
+                <li><strong>Django</strong>: A high-level Python Web framework that encourages rapid development and clean, pragmatic design.</li>
+                <li><strong>HTML/CSS</strong>: Used for structuring and styling the web pages.</li>
+                <li><strong>YAML</strong>: Used for configuration files.</li>
+            </ul>
+
+            <h2>Deployment 🚀</h2>
+            <p>The project is currently in the POC phase and deployed with Docker.</p>
+
+            <h2>Future Plans 📈</h2>
+            <p>This is just the beginning! We plan to add more features such as:</p>
+            <ul>
+                <li>Advanced matching algorithms for more accurate results.</li>
+                <li>Integration with other job posting sites.</li>
+                <li>User accounts for saving and managing reports.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

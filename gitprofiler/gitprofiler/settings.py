@@ -26,8 +26,7 @@ SECRET_KEY = 'django-insecure-feg#3-3-7m@**udk$1r9d*u=juh7drfnm*s2o_3qxm#9gyalg6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# Render.com Hosting
-ALLOWED_HOSTS = ['gitprofiler.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -41,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'celery',
     'drf_yasg',
+    'django.contrib.admindocs',
 ]
 
 MIDDLEWARE = [
@@ -115,12 +115,10 @@ USE_I18N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.2/howto/static-files/
-
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
