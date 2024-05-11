@@ -5,3 +5,4 @@ redis
 requests
 djangorestframework
 beautifulsoup4
+django-favicon
