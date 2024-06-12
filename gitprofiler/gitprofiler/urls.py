@@ -1,5 +1,6 @@
 from django.urls import path, re_path, include
 from django.views.generic import TemplateView
+from django.views.generic.base import RedirectView
 from django.contrib import admin
 from django.views.static import serve
 from drf_yasg.views import get_schema_view
@@ -26,4 +27,5 @@ urlpatterns = [
      path('button_press/', gitprofiler, name='button_press'),
      path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
      path('download/', views.download_report),
+     re_path(r'^favicon\.ico$', RedirectView.as_view(url='/static/images/favicon.svg', permanent=True)),
 ]

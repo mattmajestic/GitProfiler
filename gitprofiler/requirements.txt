@@ -7,3 +7,4 @@ djangorestframework
 beautifulsoup4
 python-dotenv
 psycopg2-binary
+django-favicon
